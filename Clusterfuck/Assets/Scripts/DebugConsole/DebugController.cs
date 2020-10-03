@@ -23,8 +23,9 @@ namespace DebugConsole
         
         private Vector2 scroll;
 
-        public static DebugCommand DEBUG_CMD;
+        public static DebugCommand TEST;
         public static DebugCommand HELP;
+        public static DebugCommand<int> TEST_VAR;
 
         public List<object> commandList;
         public List<string> messageList;
@@ -89,6 +90,8 @@ namespace DebugConsole
         // Checks which command is entered and calls it
         public void HandleInput()
         {
+            string[] properties = input.Split(' ');
+            
             for (int i = 0; i < commandList.Count; i++)
             {
                 DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
@@ -99,6 +102,10 @@ namespace DebugConsole
                     {
                         (commandList[i] as DebugCommand).Invoke();
                     }
+                    else if (commandList[i] as DebugCommand<int> != null)
+                    {
+                        (commandList[i] as DebugCommand<int>).Invoke(int.Parse(properties[1]));
+                    }
                 }
             }
         }
@@ -106,20 +113,26 @@ namespace DebugConsole
         // Called before OnEnable() when the script is initiated
         private void Awake()
         {
-            DEBUG_CMD = new DebugCommand("debug_cmd", "Prints a debug message to the console.", "debug_cmd", () =>
+            TEST = new DebugCommand("test", "Prints a test message to the console.", "test", () =>
             {
-                InfoLog("Debug command sent and recieved.");
+                InfoLog("Test command sent and received.");
             });
             
             HELP = new DebugCommand("help", "Displays a list of all commands.", "help", () =>
             {
                 showHelp();
             });
+            
+            TEST_VAR = new DebugCommand<int>("test_var", "Prints the parameter (INTEGER) set", "test_var <INTEGER>", (x) =>
+            {
+                InfoLog(x.ToString());
+            });
 
             commandList = new List<object>
             {
-                DEBUG_CMD,
-                HELP
+                TEST,
+                HELP,
+                TEST_VAR
             };
         }
 
