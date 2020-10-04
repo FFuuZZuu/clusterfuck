@@ -186,6 +186,8 @@
             <e p="MainMenuVersion.cs" t="Include" />
             <e p="Rooms" t="Include">
               <e p="CreateRoom.cs" t="Include" />
+              <e p="RoomListing.cs" t="Include" />
+              <e p="RoomListingsMenu.cs" t="Include" />
             </e>
             <e p="UsernameController.cs" t="Include" />
           </e>
