@@ -34,6 +34,7 @@ namespace DebugConsole
         public void OnToggleConsole()
         {
             showConsole = !showConsole;
+            updateConsole = showConsole;
         }
 
         // Called when a user enters a command and presses "Enter"

@@ -177,8 +177,17 @@
             <e p="DebugController.cs" t="Include" />
             <e p="DubugCommand.cs" t="Include" />
           </e>
+          <e p="GameManager.cs" t="Include" />
           <e p="Inputs" t="Include">
             <e p="Actions.cs" t="Include" />
+          </e>
+          <e p="TestConnect.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="MainMenuVersion.cs" t="Include" />
+            <e p="Rooms" t="Include">
+              <e p="CreateRoom.cs" t="Include" />
+            </e>
+            <e p="UsernameController.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
