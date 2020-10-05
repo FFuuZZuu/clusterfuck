@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
@@ -14,5 +15,11 @@ public class RoomListing : MonoBehaviour
     {
         RoomInfo = roomInfo;
         text.text = roomInfo.Name;
+    }
+
+    public void OnClick_JoinGame()
+    {
+        PhotonNetwork.JoinRoom(RoomInfo.Name);
+        PhotonNetwork.LoadLevel(1);
     }
 }

@@ -18,6 +18,7 @@ namespace UI.Rooms
             RoomOptions options = new RoomOptions();
             options.MaxPlayers = maxPlayers;
             PhotonNetwork.JoinOrCreateRoom(roomName.text, options, TypedLobby.Default);
+            PhotonNetwork.LoadLevel(1);
         }
 
         public override void OnCreatedRoom()

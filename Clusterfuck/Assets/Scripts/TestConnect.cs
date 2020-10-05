@@ -11,6 +11,7 @@ public class TestConnect : MonoBehaviourPunCallbacks
     private void Start()
     {
         Debug.Log("Connecting to server.");
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.NickName = GameManager.Instance.username;
         PhotonNetwork.GameVersion = GameManager.Instance.gameVersion;
         PhotonNetwork.ConnectUsingSettings();
